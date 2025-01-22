@@ -1,52 +1,59 @@
-Name : Aswath S
+Name: Aswath S
 Reg No: 21BEC2188 
 College: Vellore Institute Of Technology, Vellore.
 Email: aswathsrinivasan2003@gmail.com
-Mobile: 7397003975
+Mobile : 7397003975
 
 Question-1
 To Create a file and add executable permissions to all the users (user,group and others).
 Terminal Output:
-aswath@aswath-VirtualBox:~$ touch file11.txt
-aswath@aswath-VirtualBox:~$ ls -l file11.txt
--rw-rw-r-- 1 aswath aswath 0 Jan 22 18:45 file11.txt
-aswath@aswath-VirtualBox:~$ chmod 775 file11.txt
-aswath@aswath-VirtualBox:~$ ls -l file11.txt
--rwxrwxr-x 1 aswath aswath 0 Jan 22 18:45 file11.txt
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch file1.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l
+total 0
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 19:50 file1.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ chmod a+x file1.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l
+total 0
+-rwxrwxr-x 1 aswath aswath 0 Jan 22 19:50 file1.txt
+
 
 Question-2
 To Create a file and remove the write permission for group user alone.
 Terminal Output:
-aswath@aswath-VirtualBox:~$ touch file12.txt
-aswath@aswath-VirtualBox:~$ ls -l file12.txt
--rw-rw-r-- 1 aswath aswath 0 Jan 22 18:48 file12.txt
-aswath@aswath-VirtualBox:~$ chmod g-w file12.txt 
-aswath@aswath-VirtualBox:~$ ls -l file12.txt 
--rw-r--r-- 1 aswath aswath 0 Jan 22 18:48 file12.txt
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch file2.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l
+total 0
+-rwxrwxr-x 1 aswath aswath 0 Jan 22 19:50 file1.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 19:52 file2.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ chmod g-w file2.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l file2.txt 
+-rw-r--r-- 1 aswath aswath 0 Jan 22 19:52 file2.txt
+
 
 Question 3
 To create a file and add a soft link to the file in different directory (Eg: Create a file in dir1/dir2/file and create a soft link for file inside dir1)
 Terminal Output:
-swath@aswath-VirtualBox:~$ mkdir -p Directory1/Directory2
-aswath@aswath-VirtualBox:~$ cat>Directory1/Directory2/sample.txt
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ mkdir -p Directory1/Directory2
+aswath@aswath-VirtualBox:~/M1_Assignments$ cat>Directory1/Directory2/sample.txt
 Hii, Good Evening
-aswath@aswath-VirtualBox:~$ cd Directory1/
-aswath@aswath-VirtualBox:~/Directory1$ ln -s Directory2/sample.txt rsample
-aswath@aswath-VirtualBox:~/Directory1$ ls -lrth
-total 4.0K
-drwxrwxr-x 2 aswath aswath 4.0K Jan 22 11:32 Directory2
--rw-rw-r-- 1 aswath aswath    0 Jan 22 11:54 L3.txt
--rw-rw-r-- 1 aswath aswath    0 Jan 22 11:54 L2.txt
--rw-rw-r-- 1 aswath aswath    0 Jan 22 11:54 L1.txt
-lrwxrwxrwx 1 aswath aswath   21 Jan 22 18:52 rsample -> Directory2/sample.txt
-aswath@aswath-VirtualBox:~/Directory1$ cat rsample 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ln -s /home/aswath/M1_Assignments/Directory1/Directory2/sample.txt /home/aswath/M1_Assignments/Directory1/rsample
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l Directory1/
+total 8
+drwxrwxr-x 2 aswath aswath 4096 Jan 22 20:16 Directory2
+lrwxrwxrwx 1 aswath aswath   60 Jan 22 20:17 rsample -> /home/aswath/M1_Assignments/Directory1/Directory2/sample.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ cat Directory1/rsample 
 Hii, Good Evening
+
 
 
 Question -4
 Use ps command with options to display all active process runnning on the system 
 Terminal output:
-aswath@aswath-VirtualBox:~$ ps aux
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ ps aux
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root           1  0.0  0.2  23116 14032 ?        Ss   16:23   0:04 /sbin/init splash
 root           2  0.0  0.0      0     0 ?        S    16:23   0:00 [kthreadd]
@@ -62,7 +69,7 @@ root          13  0.0  0.0      0     0 ?        I    16:23   0:00 [rcu_tasks_kt
 root          14  0.0  0.0      0     0 ?        I    16:23   0:00 [rcu_tasks_rude_kthread]
 root          15  0.0  0.0      0     0 ?        I    16:23   0:00 [rcu_tasks_trace_kthread]
 root          16  0.0  0.0      0     0 ?        S    16:23   0:00 [ksoftirqd/0]
-root          17  0.0  0.0      0     0 ?        I    16:23   0:02 [rcu_preempt]
+root          17  0.0  0.0      0     0 ?        I    16:23   0:04 [rcu_preempt]
 root          18  0.0  0.0      0     0 ?        S    16:23   0:00 [migration/0]
 root          19  0.0  0.0      0     0 ?        S    16:23   0:00 [idle_inject/0]
 root          20  0.0  0.0      0     0 ?        S    16:23   0:00 [cpuhp/0]
@@ -87,7 +94,7 @@ root          46  0.0  0.0      0     0 ?        S    16:23   0:00 [kauditd]
 root          47  0.0  0.0      0     0 ?        S    16:23   0:00 [khungtaskd]
 root          48  0.0  0.0      0     0 ?        S    16:23   0:00 [oom_reaper]
 root          50  0.0  0.0      0     0 ?        I<   16:23   0:00 [kworker/R-write]
-root          51  0.0  0.0      0     0 ?        S    16:23   0:00 [kcompactd0]
+root          51  0.0  0.0      0     0 ?        S    16:23   0:01 [kcompactd0]
 root          52  0.0  0.0      0     0 ?        SN   16:23   0:00 [ksmd]
 root          54  0.0  0.0      0     0 ?        SN   16:23   0:00 [khugepaged]
 root          55  0.0  0.0      0     0 ?        I<   16:23   0:00 [kworker/R-kinte]
@@ -126,22 +133,22 @@ root         167  0.0  0.0      0     0 ?        S    16:23   0:00 [scsi_eh_2]
 root         168  0.0  0.0      0     0 ?        I<   16:23   0:00 [kworker/R-scsi_]
 root         220  0.0  0.0      0     0 ?        S    16:23   0:00 [jbd2/sda2-8]
 root         221  0.0  0.0      0     0 ?        I<   16:23   0:00 [kworker/R-ext4-]
-root         271  0.0  0.3  67224 18224 ?        S<s  16:23   0:01 /usr/lib/systemd/systemd-journald
+root         271  0.0  0.3  67224 18352 ?        S<s  16:23   0:01 /usr/lib/systemd/systemd-journald
 root         322  0.0  0.0      0     0 ?        S    16:23   0:00 [irq/18-vmwgfx]
 root         323  0.0  0.0      0     0 ?        I<   16:23   0:00 [kworker/R-ttm]
 root         326  0.0  0.0      0     0 ?        I    16:23   0:00 [kworker/u8:1-ext4-rsv-conversion]
 root         348  0.0  0.1  30468  8448 ?        Ss   16:23   0:00 /usr/lib/systemd/systemd-udevd
-systemd+     436  0.0  0.1  17556  7552 ?        Ss   16:23   0:03 /usr/lib/systemd/systemd-oomd
+systemd+     436  0.0  0.1  17556  7552 ?        Ss   16:23   0:04 /usr/lib/systemd/systemd-oomd
 systemd+     445  0.0  0.2  22068 13312 ?        Ss   16:23   0:00 /usr/lib/systemd/systemd-resolved
 systemd+     450  0.0  0.1  91044  7808 ?        Ssl  16:23   0:00 /usr/lib/systemd/systemd-timesyncd
 root         468  0.0  0.0      0     0 ?        S    16:23   0:00 [psimon]
 root         738  0.0  0.0      0     0 ?        I<   16:23   0:00 [kworker/R-crypt]
 avahi        765  0.0  0.0   8664  4480 ?        Ss   16:23   0:00 avahi-daemon: running [aswath-VirtualBox.local]
-message+     769  0.0  0.1  12172  7040 ?        Ss   16:23   0:01 @dbus-daemon --system --address=systemd: --nofork --n
+message+     769  0.0  0.1  12172  7040 ?        Ss   16:23   0:02 @dbus-daemon --system --address=systemd: --nofork --n
 gnome-r+     779  0.0  0.3 512804 16196 ?        Ssl  16:24   0:00 /usr/libexec/gnome-remote-desktop-daemon --system
 polkitd      797  0.0  0.2 399656 11928 ?        Ssl  16:24   0:01 /usr/lib/polkit-1/polkitd --no-debug
 root         804  0.0  0.1 322044  7296 ?        Ssl  16:24   0:00 /usr/libexec/power-profiles-daemon
-root         818  0.0  0.6 1542892 35200 ?       Ssl  16:24   0:06 /usr/lib/snapd/snapd
+root         818  0.0  0.6 1542892 34764 ?       Ssl  16:24   0:06 /usr/lib/snapd/snapd
 root         820  0.0  0.1 321960  7516 ?        Ssl  16:24   0:00 /usr/libexec/accounts-daemon
 root         822  0.0  0.0  18092  2816 ?        Ss   16:24   0:00 /usr/sbin/cron -f -P
 root         824  0.0  0.1 318544  6528 ?        Ssl  16:24   0:00 /usr/libexec/switcheroo-control
@@ -163,18 +170,18 @@ kernoops    1214  0.0  0.0  12744  2324 ?        Ss   16:24   0:00 /usr/sbin/ker
 kernoops    1217  0.0  0.0  12744  2184 ?        Ss   16:24   0:00 /usr/sbin/kerneloops
 rtkit       1310  0.0  0.0  22940  3328 ?        SNsl 16:24   0:00 /usr/libexec/rtkit-daemon
 colord      1435  0.0  0.2 328688 14532 ?        Ssl  16:24   0:00 /usr/libexec/colord
-root        1483  0.0  0.1 325744  9344 ?        Ssl  16:24   0:01 /usr/libexec/upowerd
+root        1483  0.0  0.1 325872  9344 ?        Ssl  16:24   0:02 /usr/libexec/upowerd
 root        1774  0.0  0.0      0     0 ?        I<   16:24   0:00 [kworker/u14:1]
-root        1831  0.0  0.2 398712 10624 ?        Sl   16:24   0:00 gdm-session-worker [pam/gdm-password]
-aswath      1845  0.0  0.2  21148 12356 ?        Ss   16:25   0:01 /usr/lib/systemd/systemd --user
+root        1831  0.0  0.2 398712 10880 ?        Sl   16:24   0:00 gdm-session-worker [pam/gdm-password]
+aswath      1845  0.0  0.2  21148 12608 ?        Ss   16:25   0:02 /usr/lib/systemd/systemd --user
 aswath      1850  0.0  0.0  21456  3596 ?        S    16:25   0:00 (sd-pam)
-aswath      1864  0.0  0.3 126552 16420 ?        S<sl 16:25   0:01 /usr/bin/pipewire
+aswath      1864  0.0  0.3 126192 16844 ?        S<sl 16:25   0:02 /usr/bin/pipewire
 aswath      1868  0.0  0.1 106404  6016 ?        Ssl  16:25   0:00 /usr/bin/pipewire -c filter-chain.conf
 aswath      1870  0.0  0.2  39128 11904 ?        Ss   16:25   0:01 /snap/snapd-desktop-integration/253/usr/bin/snapd-des
-aswath      1873  0.0  0.3 415528 18560 ?        S<sl 16:25   0:00 /usr/bin/wireplumber
-aswath      1874  0.0  0.4 130420 24208 ?        S<sl 16:25   0:00 /usr/bin/pipewire-pulse
+aswath      1873  0.0  0.3 415528 18560 ?        S<sl 16:25   0:01 /usr/bin/wireplumber
+aswath      1874  0.0  0.5 132060 26476 ?        S<sl 16:25   0:01 /usr/bin/pipewire-pulse
 aswath      1875  0.0  0.2 325176 10112 ?        SLsl 16:25   0:00 /usr/bin/gnome-keyring-daemon --foreground --componen
-aswath      1878  0.0  0.1  11144  6912 ?        Ss   16:25   0:01 /usr/bin/dbus-daemon --session --address=systemd: --n
+aswath      1878  0.0  0.1  11148  6876 ?        Ss   16:25   0:02 /usr/bin/dbus-daemon --session --address=systemd: --n
 aswath      1920  0.0  0.1 692692  7552 ?        Ssl  16:25   0:00 /usr/libexec/xdg-document-portal
 aswath      1930  0.0  0.1 244336  5888 tty2     Ssl+ 16:25   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESS
 aswath      1938  0.0  0.3 306876 16384 tty2     Sl+  16:25   0:00 /usr/libexec/gnome-session-binary --session=ubuntu
@@ -185,7 +192,7 @@ aswath      2023  0.0  0.1 100216  5632 ?        Ssl  16:25   0:00 /usr/libexec/
 aswath      2040  0.0  0.1 322948  7808 ?        Ssl  16:25   0:00 /usr/libexec/gvfsd
 aswath      2048  0.0  0.1 468380  6912 ?        Sl   16:25   0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
 aswath      2050  0.0  0.3 602860 18304 ?        Ssl  16:25   0:00 /usr/libexec/gnome-session-binary --systemd-service -
-aswath      2084  4.7  9.9 4918636 500952 ?      Rsl  16:25   7:55 /usr/bin/gnome-shell
+aswath      2084  5.6 10.9 4981016 552308 ?      Ssl  16:25  13:16 /usr/bin/gnome-shell
 aswath      2086  0.0  0.1 382940  7808 ?        Sl   16:25   0:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
 aswath      2098  0.0  0.0   9608  4864 ?        S    16:25   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/default
 aswath      2162  0.0  0.1 236068  7552 ?        Sl   16:25   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
@@ -194,14 +201,14 @@ aswath      2190  0.0  0.3 654772 17408 ?        Sl   16:25   0:00 /usr/libexec/
 aswath      2200  0.0  0.8 1272124 42752 ?       Ssl  16:25   0:00 /usr/libexec/evolution-source-registry
 aswath      2209  0.0  0.5 2597512 26620 ?       Sl   16:25   0:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.Shel
 aswath      2210  0.0  1.1 216440 59184 ?        S    16:25   0:00 /usr/bin/Xwayland :0 -rootless -noreset -accessx -cor
-aswath      2217  0.0  0.2 471256 12156 ?        Ssl  16:25   0:06 /usr/bin/ibus-daemon --panel disable
+aswath      2217  0.0  0.2 471256 12156 ?        Ssl  16:25   0:09 /usr/bin/ibus-daemon --panel disable
 aswath      2219  0.0  0.1 392188  6656 ?        Ssl  16:25   0:00 /usr/libexec/gsd-a11y-settings
 aswath      2220  0.0  0.4 421572 20332 ?        Ssl  16:25   0:00 /usr/libexec/gsd-color
 aswath      2221  0.0  0.2 440332 12160 ?        Ssl  16:25   0:00 /usr/libexec/gsd-datetime
 aswath      2225  0.0  0.1 467540  7808 ?        Ssl  16:25   0:00 /usr/libexec/gsd-housekeeping
 aswath      2228  0.0  0.3 420428 19716 ?        Ssl  16:25   0:00 /usr/libexec/gsd-keyboard
 aswath      2231  0.0  0.5 602812 25732 ?        Ssl  16:25   0:00 /usr/libexec/gsd-media-keys
-aswath      2237  0.0  0.5 675312 25988 ?        Ssl  16:25   0:00 /usr/libexec/gsd-power
+aswath      2237  0.0  0.5 675312 26116 ?        Ssl  16:25   0:00 /usr/libexec/gsd-power
 aswath      2242  0.0  0.2 332312 11136 ?        Ssl  16:25   0:00 /usr/libexec/gsd-print-notifications
 aswath      2246  0.0  0.1 539752  6528 ?        Ssl  16:25   0:00 /usr/libexec/gsd-rfkill
 aswath      2248  0.0  0.1 318228  6144 ?        Ssl  16:25   0:00 /usr/libexec/gsd-screensaver-proxy
@@ -215,21 +222,21 @@ aswath      2378  0.0  0.4 555320 23936 ?        Sl   16:25   0:00 /usr/libexec/
 aswath      2387  0.0  0.2 397992 10240 ?        Ssl  16:25   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
 aswath      2396  0.0  0.2 424872 14976 ?        Sl   16:25   0:00 /usr/libexec/gsd-printer
 aswath      2440  0.0  0.1 319136  7168 ?        Sl   16:25   0:00 /usr/libexec/ibus-dconf
-aswath      2444  0.0  0.5 430148 29348 ?        Sl   16:25   0:04 /usr/libexec/ibus-extension-gtk3
+aswath      2444  0.0  0.5 430148 29348 ?        Sl   16:25   0:05 /usr/libexec/ibus-extension-gtk3
 aswath      2448  0.0  0.4 899400 23936 ?        Ssl  16:25   0:00 /usr/libexec/evolution-calendar-factory
 aswath      2449  0.0  0.1 319096  7040 ?        Sl   16:25   0:00 /usr/libexec/ibus-portal
 aswath      2476  0.0  0.1 318460  6400 ?        Ssl  16:25   0:00 /usr/libexec/gvfs-mtp-volume-monitor
 aswath      2481  0.0  0.1 397796  8960 ?        Sl   16:25   0:00 /usr/libexec/goa-identity-service
 aswath      2491  0.0  0.1 319428  6784 ?        Ssl  16:25   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
-aswath      2499  0.0  0.1 398044  7680 ?        Ssl  16:25   0:00 /usr/libexec/gvfs-afc-volume-monitor
+aswath      2499  0.0  0.1 398044  7680 ?        Ssl  16:25   0:01 /usr/libexec/gvfs-afc-volume-monitor
 aswath      2503  0.0  0.5 760356 29824 ?        Ssl  16:25   0:00 /usr/libexec/evolution-addressbook-factory
 aswath      2511  0.0  0.1 318440  6272 ?        Ssl  16:25   0:00 /usr/libexec/gvfs-goa-volume-monitor
-aswath      2538  0.0  0.1 245440  7552 ?        Sl   16:25   0:02 /usr/libexec/ibus-engine-simple
+aswath      2538  0.0  0.1 245440  7552 ?        Sl   16:25   0:03 /usr/libexec/ibus-engine-simple
 aswath      2561  0.0  0.1 230240  5888 ?        Ssl  16:25   0:00 /usr/libexec/dconf-service
-aswath      2580  0.0  0.1 544536  9984 ?        Sl   16:25   0:00 /usr/libexec/gvfsd-trash --spawner :1.20 /org/gtk/gvf
-aswath      2610  0.0  0.5 957184 27996 ?        SNsl 16:25   0:01 /usr/libexec/tracker-miner-fs-3
+aswath      2580  0.0  0.2 544696 10752 ?        Sl   16:25   0:00 /usr/libexec/gvfsd-trash --spawner :1.20 /org/gtk/gvf
+aswath      2610  0.0  0.5 957184 28760 ?        SNsl 16:25   0:01 /usr/libexec/tracker-miner-fs-3
 aswath      2611  0.0  0.2 841464 14788 ?        Ssl  16:25   0:00 /usr/libexec/xdg-desktop-portal
-aswath      2622  0.3  5.7 2254104 288852 ?      Ssl  16:25   0:38 /usr/libexec/xdg-desktop-portal-gnome
+aswath      2622  0.3  6.1 2272472 309684 ?      Ssl  16:25   0:47 /usr/libexec/xdg-desktop-portal-gnome
 aswath      2632  0.0  0.5 2663156 27024 ?       Sl   16:25   0:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.Scre
 root        2670  0.0  0.0      0     0 ?        I<   16:25   0:00 [kworker/u16:1]
 aswath      2677  0.0  1.4 622480 75392 ?        Ssl  16:25   0:00 /usr/libexec/gsd-xsettings
@@ -240,72 +247,75 @@ aswath      2745  0.0  1.7 1393700 89532 ?       Sl   16:25   0:00 /usr/libexec/
 aswath      2884  0.0  0.6 504188 33156 ?        Sl   16:26   0:00 /usr/bin/update-notifier
 aswath      3002  0.0  0.3  40556 19328 ?        S    16:27   0:00 /usr/bin/python3 /usr/bin/gnome-terminal --wait
 aswath      3005  0.0  0.5 467596 28932 ?        Sl   16:27   0:00 /usr/bin/gnome-terminal.real --wait
-aswath      3011  0.2  1.2 638992 61408 ?        Ssl  16:27   0:21 /usr/libexec/gnome-terminal-server
+aswath      3011  0.2  1.2 638992 61648 ?        Ssl  16:27   0:34 /usr/libexec/gnome-terminal-server
 aswath      3018  0.0  0.1  19824  5248 pts/0    Ss   16:27   0:00 bash
-aswath      3253  2.4  8.1 11613940 412712 ?     Sl   16:29   3:57 /snap/firefox/4793/usr/lib/firefox/firefox
+aswath      3253  2.1  8.1 11643040 413360 ?     Sl   16:29   5:02 /snap/firefox/4793/usr/lib/firefox/firefox
 root        3291  0.0  0.0      0     0 ?        S    16:29   0:00 [psimon]
 aswath      3455  0.0  0.9 208024 49280 ?        Sl   16:29   0:00 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-aswath      3508  0.1  2.8 2477980 145684 ?      Sl   16:29   0:14 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      3508  0.1  3.2 2496428 164444 ?      Sl   16:29   0:16 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
 aswath      3549  0.0  0.4 1387072 20260 ?       Sl   16:29   0:00 /usr/bin/snap userd
-aswath      3718  0.0  1.8 2428932 91448 ?       Sl   16:29   0:03 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-aswath      3937  0.0  1.1 343388 60544 ?        Sl   16:29   0:00 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-aswath      4083  2.4 10.9 3083748 552940 ?      Sl   16:29   3:55 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-root        4257  0.0  0.7 486412 38732 ?        Ssl  16:31   0:00 /usr/libexec/fwupd/fwupd
+aswath      3718  0.0  1.8 2428948 91576 ?       Sl   16:29   0:04 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      3937  0.0  1.1 343388 60544 ?        Sl   16:29   0:02 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      4083  2.3 10.9 3083392 552212 ?      Sl   16:29   5:21 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+root        4257  0.0  0.7 486412 38732 ?        Ssl  16:31   0:01 /usr/libexec/fwupd/fwupd
 aswath      4303  0.0  0.1 470992  8576 ?        Sl   16:32   0:00 /usr/libexec/gvfsd-network --spawner :1.20 /org/gtk/g
 aswath      4320  0.0  0.1 399216  8832 ?        Sl   16:32   0:00 /usr/libexec/gvfsd-dnssd --spawner :1.20 /org/gtk/gvf
-aswath      5125  0.2  6.8 2499556 347744 ?      Sl   17:14   0:20 /usr/bin/nautilus --gapplication-service
-aswath      5158  0.0  0.1 397012  8448 ?        Sl   17:14   0:00 /usr/libexec/gvfsd-recent --spawner :1.20 /org/gtk/gv
-root        5696  0.0  0.0      0     0 ?        I    17:34   0:00 [kworker/u11:0-events_unbound]
-root        5935  0.0  0.0      0     0 ?        I    17:46   0:00 [kworker/u12:3-events_unbound]
-root        6098  0.0  0.0      0     0 ?        I    17:59   0:00 [kworker/u10:2-events_power_efficient]
-root        6133  0.0  0.0      0     0 ?        I    18:00   0:00 [kworker/u9:2-events_unbound]
+aswath      5125  0.6  8.6 2597548 435932 ?      Sl   17:14   1:17 /usr/bin/nautilus --gapplication-service
+aswath      5158  0.0  0.2 471912 10112 ?        Sl   17:14   0:00 /usr/libexec/gvfsd-recent --spawner :1.20 /org/gtk/gv
 root        6324  0.0  0.0      0     0 ?        I    18:15   0:00 [kworker/3:2-events]
-aswath      6479  0.6  3.0 2515624 155036 ?      Sl   18:17   0:19 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-aswath      6626  0.0  1.4 2393504 73344 ?       Sl   18:18   0:00 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-aswath      6657  0.0  1.4 2393508 73472 ?       Sl   18:18   0:00 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-aswath      6692  0.0  1.4 2393508 73472 ?       Sl   18:18   0:00 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      6479  0.3  3.1 2515640 157832 ?      Sl   18:17   0:22 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      6626  0.0  1.4 2393488 73344 ?       Sl   18:18   0:01 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      6657  0.0  1.4 2393492 73472 ?       Sl   18:18   0:01 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
+aswath      6692  0.0  1.4 2393508 73472 ?       Sl   18:18   0:01 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
 aswath      6904  0.0  1.0 340816 55168 ?        Sl   18:22   0:00 /snap/firefox/4793/usr/lib/firefox/firefox -contentpr
-root        7515  0.0  0.0      0     0 ?        I    18:23   0:00 [kworker/u9:3-writeback]
-root        7732  0.0  0.0      0     0 ?        I    18:23   0:00 [kworker/0:2-cgroup_destroy]
-root        7847  0.0  0.0      0     0 ?        I    18:26   0:00 [kworker/u12:0-events_unbound]
-root        7948  0.0  0.0      0     0 ?        I    18:30   0:00 [kworker/2:3-inet_frag_wq]
-root        8198  0.0  0.0      0     0 ?        I    18:37   0:00 [kworker/1:1-events]
-root        8201  0.0  0.0      0     0 ?        I    18:37   0:00 [kworker/u12:1-events_power_efficient]
-aswath      8209  0.0  1.2 2950248 62400 ?       Sl   18:37   0:00 gjs /usr/share/gnome-shell/extensions/ding@rastersoft
-aswath      8253 16.2  8.3 2407964 422088 ?      Sl   18:37   5:20 /usr/bin/gnome-text-editor
-root        8289  0.0  0.0      0     0 ?        I    18:37   0:00 [kworker/u9:0-events_power_efficient]
-root        8333  0.0  0.0      0     0 ?        I    18:39   0:00 [kworker/2:1-cgroup_destroy]
-root        8686  0.0  0.0      0     0 ?        I    18:52   0:00 [kworker/u10:0-flush-8:0]
-root        8839  0.0  0.0      0     0 ?        I    19:00   0:00 [kworker/1:0]
-root        8888  0.0  0.0      0     0 ?        I    19:03   0:00 [kworker/u10:1-events_unbound]
-root        8942  0.0  0.0      0     0 ?        I    19:04   0:00 [kworker/3:0]
+aswath      8253 11.2 11.1 2693224 561436 ?      Sl   18:37  11:20 /usr/bin/gnome-text-editor
+root        8289  0.0  0.0      0     0 ?        I    18:37   0:00 [kworker/u9:0-flush-8:0]
 root        8943  0.0  0.0      0     0 ?        I    19:04   0:00 [kworker/0:1-events]
-root        9067  0.0  0.0      0     0 ?        I    19:05   0:00 [kworker/u11:1-events_unbound]
-root        9076  0.0  0.0      0     0 ?        I    19:05   0:00 [kworker/2:0-mm_percpu_wq]
-root        9130  0.0  0.0      0     0 ?        I    19:10   0:00 [kworker/0:0-cgroup_destroy]
-aswath      9139  0.0  0.0  22420  4736 pts/0    R+   19:10   0:00 ps aux
+root        9076  0.0  0.0      0     0 ?        I    19:05   0:01 [kworker/2:0-events]
+root        9625  0.0  0.0      0     0 ?        I    19:30   0:00 [kworker/u10:3-events_power_efficient]
+root        9659  0.0  0.0      0     0 ?        I    19:32   0:00 [kworker/u9:1-events_unbound]
+root        9679  0.0  0.0      0     0 ?        I    19:33   0:00 [kworker/1:0-events]
+root        9749  0.0  0.0      0     0 ?        I    19:35   0:00 [kworker/u10:4-events_unbound]
+aswath     10048  0.0  1.2 2950148 63016 ?       Sl   19:46   0:00 gjs /usr/share/gnome-shell/extensions/ding@rastersoft
+root       10103  0.0  0.0      0     0 ?        I    19:46   0:00 [kworker/u12:2-events_power_efficient]
+root       10262  0.0  0.0      0     0 ?        I    19:51   0:00 [kworker/1:2-events]
+root       10380  0.0  0.0      0     0 ?        I    19:57   0:00 [kworker/u11:3-writeback]
+root       10440  0.0  0.0      0     0 ?        I    20:00   0:00 [kworker/2:1-cgroup_destroy]
+root       10574  0.0  0.0      0     0 ?        I    20:00   0:00 [kworker/u12:1-events_power_efficient]
+root       10707  0.0  0.0      0     0 ?        I    20:01   0:00 [kworker/0:2-events]
+root       10818  0.0  0.0      0     0 ?        I    20:04   0:00 [kworker/u10:0-events_unbound]
+root       10940  0.0  0.0      0     0 ?        I    20:06   0:00 [kworker/u9:2-events_unbound]
+root       10942  0.0  0.0      0     0 ?        I    20:06   0:00 [kworker/u11:0-events_unbound]
+root       11045  0.0  0.0      0     0 ?        I    20:10   0:00 [kworker/3:0]
+root       11049  0.0  0.0      0     0 ?        I    20:10   0:00 [kworker/u12:0-events_power_efficient]
+root       11242  0.0  0.0      0     0 ?        I    20:16   0:00 [kworker/u12:3-flush-8:0]
+aswath     11315  0.0  0.0  22420  4736 pts/0    R+   20:18   0:00 ps aux
 
 
 
 Question-5
 
 To Create 3 files in a dir1 and re-direct the output of list command with sorted by timestamp of the files to a file
-
 Terminal Output:
-aswath@aswath-VirtualBox:~$ mkdir dir1
-aswath@aswath-VirtualBox:~$ cd dir1/
-aswath@aswath-VirtualBox:~/dir1$ touch L1.txt
-aswath@aswath-VirtualBox:~/dir1$ sleep 1m
-aswath@aswath-VirtualBox:~/dir1$ touch L2.txt
-aswath@aswath-VirtualBox:~/dir1$ sleep 1m
-aswath@aswath-VirtualBox:~/dir1$ touch L3.txt
-aswath@aswath-VirtualBox:~/dir1$ ls -lt>output.txt
-aswath@aswath-VirtualBox:~/dir1$ cat output.txt 
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ mkdir dir1
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch dir1/file1.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ sleep 1m
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch dir1/file2.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ sleep 1m
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch dir1/file3.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -lt dir1/
 total 0
--rw-rw-r-- 1 aswath aswath 0 Jan 22 19:03 output.txt
--rw-rw-r-- 1 aswath aswath 0 Jan 22 19:02 L3.txt
--rw-rw-r-- 1 aswath aswath 0 Jan 22 19:01 L2.txt
--rw-rw-r-- 1 aswath aswath 0 Jan 22 18:59 L1.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:26 file3.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:25 file2.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:24 file1.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -lt dir1/ > dir1/output_file.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ cat dir1/output_file.txt 
+total 0
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:28 output_file.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:26 file3.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:25 file2.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:24 file1.txt
 
 
 
