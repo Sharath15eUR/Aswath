@@ -1,0 +1,14 @@
+Name : Aswath S
+
+Question-2
+To Create a file and remove the write permission for group user alone.
+Terminal Output:
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch file2.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l
+total 0
+-rwxrwxr-x 1 aswath aswath 0 Jan 22 19:50 file1.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 19:52 file2.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ chmod g-w file2.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l file2.txt 
+-rw-r--r-- 1 aswath aswath 0 Jan 22 19:52 file2.txt

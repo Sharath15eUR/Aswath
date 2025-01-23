@@ -1,0 +1,25 @@
+Name: Aswath S
+
+Question-5
+
+To Create 3 files in a dir1 and re-direct the output of list command with sorted by timestamp of the files to a file
+Terminal Output:
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ mkdir dir1
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch dir1/file1.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ sleep 1m
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch dir1/file2.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ sleep 1m
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch dir1/file3.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -lt dir1/
+total 0
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:26 file3.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:25 file2.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:24 file1.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -lt dir1/ > dir1/output_file.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ cat dir1/output_file.txt 
+total 0
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:28 output_file.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:26 file3.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:25 file2.txt
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 20:24 file1.txt

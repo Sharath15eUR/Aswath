@@ -1,0 +1,14 @@
+Name: Aswath S
+
+Question-1
+To Create a file and add executable permissions to all the users (user,group and others).
+Terminal Output:
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ touch file1.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l
+total 0
+-rw-rw-r-- 1 aswath aswath 0 Jan 22 19:50 file1.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ chmod a+x file1.txt 
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l
+total 0
+-rwxrwxr-x 1 aswath aswath 0 Jan 22 19:50 file1.txt

@@ -1,0 +1,16 @@
+Name: Aswath S
+
+Question 3
+To create a file and add a soft link to the file in different directory (Eg: Create a file in dir1/dir2/file and create a soft link for file inside dir1)
+Terminal Output:
+
+aswath@aswath-VirtualBox:~/M1_Assignments$ mkdir -p Directory1/Directory2
+aswath@aswath-VirtualBox:~/M1_Assignments$ cat>Directory1/Directory2/sample.txt
+Hii, Good Evening
+aswath@aswath-VirtualBox:~/M1_Assignments$ ln -s /home/aswath/M1_Assignments/Directory1/Directory2/sample.txt /home/aswath/M1_Assignments/Directory1/rsample
+aswath@aswath-VirtualBox:~/M1_Assignments$ ls -l Directory1/
+total 8
+drwxrwxr-x 2 aswath aswath 4096 Jan 22 20:16 Directory2
+lrwxrwxrwx 1 aswath aswath   60 Jan 22 20:17 rsample -> /home/aswath/M1_Assignments/Directory1/Directory2/sample.txt
+aswath@aswath-VirtualBox:~/M1_Assignments$ cat Directory1/rsample 
+Hii, Good Evening
