@@ -1,0 +1,57 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-10:
+Explain how a DHCP server assigns IP addresses to devices in your network
+
+
+
+The Dynamic Host Configuration Protocol (DHCP) is responsible for automatically assigning IP addresses to devices (computers, smartphones, IoT devices) in a network. 
+Instead of manually configuring each device, the DHCP server dynamically provides network settings, ensuring efficient and conflict-free IP management.
+
+1.Device Sends a DHCP Discover Message
+
+When a device (client) joins a network, it broadcasts a DHCP Discover message requesting an IP address.
+This message is sent to all available DHCP servers in the network.
+
+2.DHCP Server Responds with a DHCP Offer
+
+The DHCP server reserves an available IP address from its IP pool.
+It then sends a DHCP Offer containing:
+Proposed IP Address
+Subnet Mask
+Default Gateway (Router IP)
+DNS Server Information
+
+3.Client Sends a DHCP Request
+
+The device responds with a DHCP Request to the DHCP server, confirming that it wants to use the assigned IP.
+This prevents conflicts with other devices.
+
+4.DHCP Server Sends an Acknowledgment (DHCP ACK)
+
+The server confirms the IP lease and sends a DHCP Acknowledgment (ACK).
+The client can now use the assigned IP address to communicate in the network.
+
+so in my computer 
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Intel(R) Wi-Fi 6 AX201 160MHz
+   Physical Address. . . . . . . . . : 70-9C-D1-DB-D5-67
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   IPv6 Address. . . . . . . . . . . : 2405:201:e022:1025:5929:6296:550e:c509(Preferred)
+   Temporary IPv6 Address. . . . . . : 2405:201:e022:1025:acfc:d5b4:5ad9:a2f6(Preferred)
+   Link-local IPv6 Address . . . . . : fe80::5929:6296:550e:c509%15(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.29.2(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::b6a7:c6ff:fee7:67e4%15
+                                       192.168.29.1
+   DHCPv6 IAID . . . . . . . . . . . : 124820689
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2B-FB-05-4D-B0-22-7A-8A-42-CA
+   DNS Servers . . . . . . . . . . . : 2405:201:e022:1025::c0a8:1d01
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+since in my machine the DHCP is disabled since i am using a static ip 192.168.29.2

@@ -1,0 +1,74 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-7:
+
+How is check your default gateway is reachable or not and understand about default gateway
+
+Default Gateway:
+The default gateway is the router or network device that connects your computer to other networks, including the internet.
+It acts as a bridge between your local network (LAN) and the outside world (WAN/Internet).
+Any traffic that is not destined for your local network is forwarded to the default gateway.
+
+PS C:\Users\aswat> ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::245f:6ea:afe8:e6e0%12
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 198.168.29.92
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 10:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   IPv6 Address. . . . . . . . . . . : 2405:201:e022:1025:5929:6296:550e:c509
+   Temporary IPv6 Address. . . . . . : 2405:201:e022:1025:acfc:d5b4:5ad9:a2f6
+   Link-local IPv6 Address . . . . . : fe80::5929:6296:550e:c509%15
+   IPv4 Address. . . . . . . . . . . : 192.168.29.2
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::b6a7:c6ff:fee7:67e4%15
+                                       192.168.29.1
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+
+The Default Gateway is 192.168.29.1
+
+PS C:\Users\aswat> ping 192.168.29.1
+
+Pinging 192.168.29.1 with 32 bytes of data:
+Reply from 192.168.29.1: bytes=32 time=1ms TTL=64
+Reply from 192.168.29.1: bytes=32 time=1ms TTL=64
+Reply from 192.168.29.1: bytes=32 time=1ms TTL=64
+Reply from 192.168.29.1: bytes=32 time=1ms TTL=64
+
+Ping statistics for 192.168.29.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms 
+
+yes the default gateway is reachable, checked using the ping command.

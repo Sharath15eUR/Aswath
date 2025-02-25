@@ -1,0 +1,16 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-5:
+
+Understand what happens when dupicate Ips are configured in a network
+
+A. Network Disruptions
+Devices with the duplicate IPs may become unreachable or intermittently lose connection.
+Users may experience slow or dropped network connections.
+B. ARP (Address Resolution Protocol) Issues
+When a device sends an ARP request to resolve an IP address, it expects a single MAC address in response.
+If two devices reply with the same IP, it confuses the network, causing packet loss.
+C. Connection Drops
+If a router assigns an IP that is already in use, either the old or the new device may lose connectivity.
