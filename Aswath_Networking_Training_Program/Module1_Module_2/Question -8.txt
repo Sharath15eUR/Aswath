@@ -1,0 +1,66 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-8:
+
+check iwconfig/ifconfig to understand in detail about network interfaces.
+
+The ifconfig command is used in linux to know the network interface 
+aswath@aswath-VirtualBox:~$ ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.29.92  netmask 255.255.255.0  broadcast 192.168.29.255
+        ether 08:00:27:69:98:aa  txqueuelen 1000  (Ethernet)
+        RX packets 143321  bytes 187181523 (187.1 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 25134  bytes 3251712 (3.2 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 601  bytes 61274 (61.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 601  bytes 61274 (61.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+Explaination :
+
+enp0s3:ethernet interface
+flags=4163<UP,BROADCAST,RUNNING,MULTICAST> - UP: The interface is active. | BROADCAST: Can send broadcast messages on the network.|RUNNING: The network cable (or virtual connection) is detected.
+MULTICAST: Can send/receive multicast packets.
+MTU - maximum transmission unit - maximum packet size - 1500 bytes
+inet - Ipv4 address of the interface - 192.168.29.92
+Netmask: 255.255.255.0 (Subnet mask; means only IPs from 192.168.29.0 to 192.168.29.255 are in the same network).
+Broadcast Address: 192.168.29.255 - Used to send messages to all devices in the subnet.
+ether 08:00:27:69:98:aa -MAC Address: 08:00:27:69:98:aa - The first 3 octets (08:00:27) belong to Oracle Corporation.The last 3 octets (69:98:aa) are unique for this VM.(device specific identifiers)
+RX packets 143321 bytes 187181523 (187.1 MB)-143,321 packets received, totaling 187.1 MB of incoming data.
+RX errors 0 dropped 0 overruns 0 frame 0 - No errors, packet drops, buffer overruns, or framing errors.
+TX packets 25134 bytes 3251712 (3.2 MB) - 25,134 packets sent, totaling 3.2 MB of outgoing data.
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0 -No transmission errors, packet drops, or collisions.
+
+lo (Loopback Interface) - local communication
+flags=73<UP,LOOPBACK,RUNNING>-UP: Active.|LOOPBACK: Internal traffic only.|RUNNING: The interface is working.
+inet 127.0.0.1 netmask 255.0.0.0-IPv4 Address: 127.0.0.1 (used for internal communication).|Subnet Mask: 255.0.0.0.
+inet6 ::1 prefixlen 128 scopeid 0x10<host>-IPv6 Loopback Address: ::1
+RX packets 601 bytes 61274 (61.2 KB)-601 packets received, totaling 61.2 KB of data.
+RX errors 0 dropped 0 overruns 0 frame 0 - No errors, packet drops, buffer overruns, or framing errors.
+A buffer overrun occurs when a network interface receives more data than it can handle before it can process the previous data.
+TX packets 601 bytes 61274 (61.2 KB)-601 packets sent, totaling 61.2 KB of data.
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0 -No transmission errors, packet drops, or collisions.
+
+
+To find the interface speed 
+aswath@aswath-VirtualBox:~$ sudo ethtool enp0s3 | grep Speed
+	Speed: 1000Mb/s
+aswath@aswath-VirtualBox:~$
+
+Since no wireless connections 
+
+aswath@aswath-VirtualBox:~$ iwconfig
+lo        no wireless extensions.
+
+enp0s3    no wireless extensions.
+
+

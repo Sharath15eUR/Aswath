@@ -1,0 +1,64 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-1:
+
+Consider a case, a folder has multiple files and how would you copy it to destination machine path (using scp, cp options in linux)
+
+Case-1:
+Copying a Directory from Linux Machine to Windows Machine 
+
+Linux Machine : Username- aswath; Ip- 192.168.29.92
+So with the help of SSH (Secure Shell) we connecting the local machine to the linux machine and with the help of scp command we are copying the required folder to the targeted machine.
+
+scp -r is used recursively copy the folder files to the specified destination.
+
+Output from Windows Power Shell:
+
+PS C:\Users\aswat> scp -r aswath@192.168.29.92:/home/aswath/M1_Assignments/ C:/Users/aswat/Downloads
+aswath@192.168.29.92's password:
+output_file.txt                                                                       100%  164   164.0KB/s   00:00
+example.sh                                                                            100%    1     1.0KB/s   00:00
+output_file.txt                                                                       100%  222   222.1KB/s   00:00
+rsample                                                                               100%   18    18.0KB/s   00:00
+sample.txt                                                                            100%   18    18.0KB/s   00:00
+calci.sh                                                                              100%  489   244.7KB/s   00:00
+
+using SSH we are trying to connect the linux machine aswath@192.168.29.92
+This commands gets the Directory from Linux Machine called M1_Assignements and copys the folder to the desired location in windows 
+
+
+Case-2:
+Copying a Directory from Windows Machine to Linux Machine
+
+Linux Machine : Username- aswath; Ip- 192.168.29.92
+So with the help of SSH (Secure Shell) we connecting the local machine to the linux machine and with the help of scp command we are copying the required folder to the targeted machine.
+
+Output:
+
+PS C:\Users\aswat> scp -r "C:\Users\aswat\Downloads\copy_folder\" aswath@192.168.29.92:/home/aswath/
+aswath@192.168.29.92's password:
+calci.sh                                                                              100%  489   487.8KB/s   00:00
+file1.txt                                                                             100%    0     0.0KB/s   00:00
+file2.txt                                                                             100%    0     0.0KB/s   00:00
+file3.txt                                                                             100%    0     0.0KB/s   00:00
+output_file.txt                                                                       100%  222    22.2KB/s   00:00
+sample.txt                                                                            100%   18     0.0KB/s   00:00
+rsample                                                                               100%   18     0.0KB/s   00:00
+example.sh                                                                            100%    1     0.0KB/s   00:00
+file1.txt                                                                             100%    0     0.0KB/s   00:00
+file2.txt                                                                             100%    0     0.0KB/s   00:00
+file3.txt                                                                             100%    0     0.0KB/s   00:00
+output_file.txt                                                                       100%  164   163.9KB/s   00:00
+
+using SSH we are trying to connect the linux machine aswath@192.168.29.92
+This commands gets the folder from Windows Machine called copy_folder and copys the folder to the desired location in Linux
+
+Case-3: 
+copying a Directory in linux using cp command
+cp -r is used recursively copy the folder files to the specified destination.
+
+Output from Linux Terminal:
+
+aswath@aswath-VirtualBox:~$ cp -r /home/aswath/copy_folder/ /home/aswath/Documents/

@@ -1,0 +1,149 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-2:
+
+Host a ftp and sftp server and try PUT and GET options.
+
+Steps I followed are:
+
+Step1: Assiging a static ip address to the Wifi lan Connection (Static Ip address Allocation)
+Step2: Turning on the FTP services on windows for that go to the Windows features > enable Internet Information Services > enable FTP Server fully
+Step3: Configure the FTP Server (for that i have create a folder in my D drive called FTP Server) and have some files in it to use the get command.
+Step4: Go to IIS (Internet Information Services Manager) > under connections > under Sites > Add FTP site > give a FTP site name > under the physical 
+       path give the location path to the FTP Server folder > click on next, enter the static Ip address of WiFi lan in windows and port 21.> click on next 
+       and in autorization give access to specific users and give a username here i gave (ftp-user). now i have created a FTP Server in my windows.
+Step5: Now creating a FTP user > go to the setting accounts create a new one called ftp-user.
+Step6: Now go to the FTP Server folder and properties under security add the ftp-user which corresponds to the pc name automatically.
+Step7: Under the windows firewall setting go to allow app or feature through windows defender firewall in that allow the ftp to communicate publically.
+Step8: Now i can access the ftp server in my linux machine with the windows Ip address.
+ 
+FTP:
+
+Accessing a FTP Server in Windows via linux
+
+aswath@aswath-VirtualBox:~$ ftp 192.168.29.2
+Connected to 192.168.29.2.
+220 Microsoft FTP Service
+Name (192.168.29.2:aswath): ftp-user
+331 Password required
+Password: 
+230 User logged in.
+Remote system type is Windows_NT.
+ftp> ls
+229 Entering Extended Passive Mode (|||50470|)
+125 Data connection already open; Transfer starting.
+02-24-25  06:27PM                  489 calci.sh
+02-13-25  03:17PM               630614 Module6.2_LinuxNSS.pptx
+02-13-25  03:17PM               753987 Module6_DriverFundamentals.pptx
+02-13-25  03:17PM               181752 Module_5_linux_training.pptx
+02-20-25  02:13PM             15667200 tcpdump-4.99.5.tar
+02-20-25  02:13PM              1418476 tcpdump-4.99.5.tar.xz
+02-20-25  02:06PM             87303952 Wireshark-4.4.4-x64.exe
+226 Transfer complete.
+
+using PUT Command
+
+aswath@aswath-VirtualBox:~$ ftp 192.168.29.2
+Connected to 192.168.29.2.
+220 Microsoft FTP Service
+Name (192.168.29.2:aswath): ftp-user
+331 Password required
+Password: 
+230 User logged in.
+Remote system type is Windows_NT.
+ftp> put out.txt
+local: out.txt remote: out.txt
+229 Entering Extended Passive Mode (|||50599|)
+125 Data connection already open; Transfer starting.
+100% |*|     3        6.59 KiB/s    --:-- ETA
+226 Transfer complete.
+3 bytes sent in 00:00 (2.09 KiB/s)
+ftp> ls
+229 Entering Extended Passive Mode (|||50600|)
+125 Data connection already open; Transfer starting.
+02-24-25  06:27PM                  489 calci.sh
+02-13-25  03:17PM               630614 Module6.2_LinuxNSS.pptx
+02-13-25  03:17PM               753987 Module6_DriverFundamentals.pptx
+02-13-25  03:17PM               181752 Module_5_linux_training.pptx
+02-25-25  11:00PM                    3 out.txt
+02-20-25  02:13PM             15667200 tcpdump-4.99.5.tar
+02-20-25  02:13PM              1418476 tcpdump-4.99.5.tar.xz
+02-25-25  10:59PM                  589 viva.sh
+02-20-25  02:06PM             87303952 Wireshark-4.4.4-x64.exe
+226 Transfer complete.
+
+using GET Command 
+
+ftp> get calci.sh calci1.sh
+local: calci1.sh remote: calci.sh
+229 Entering Extended Passive Mode (|||50633|)
+125 Data connection already open; Transfer starting.
+100% |*|   489        1.59 MiB/s    00:00 ETA
+226 Transfer complete.
+WARNING! 30 bare linefeeds received in ASCII mode.
+File may not have transferred correctly.
+489 bytes received in 00:00 (813.52 KiB/s)
+
+
+
+
+SFTP (Secure File Transfer Protocol) it connects to windows machine via SSH protocol directly 
+
+aswath@aswath-VirtualBox:~$ sftp aswat@192.168.29.2
+aswat@192.168.29.2's password: 
+Connected to 192.168.29.2.
+sftp> ls
+AppData                                                                                                                 
+Application Data                                                                                                        
+Contacts                                                                                                                
+Cookies                                                                                                                 
+Documents                                                                                                               
+Downloads                                                                                                               
+Favorites                                                                                                               
+IntelGraphicsProfiles                                                                                                   
+Links                                                                                                                   
+Local Settings                                                                                                          
+Music                                                                                                                   
+My Documents                                                                                                            
+NTUSER.DAT                                                                                                              
+NTUSER.DAT{54804d11-c130-11eb-baca-000d3aa69c2d}.TM.blf                                                                 
+NTUSER.DAT{54804d11-c130-11eb-baca-000d3aa69c2d}.TMContainer00000000000000000001.regtrans-ms                            
+NTUSER.DAT{54804d11-c130-11eb-baca-000d3aa69c2d}.TMContainer00000000000000000002.regtrans-ms                            
+NetHood                                                                                                                 
+OneDrive                                                                                                                
+PrintHood                                                                                                               
+Recent                                                                                                                  
+STM32Cube                                                                                                               
+STMicroelectronics                                                                                                      
+Saved Games                                                                                                             
+Searches                                                                                                                
+SendTo                                                                                                                  
+Start Menu                                                                                                              
+Templates                                                                                                               
+Tracing                                                                                                                 
+Videos                                                                                                                  
+VirtualBox VMs                                                                                                          
+ansel                                                                                                                   
+build                                                                                                                   
+cdssetup                                                                                                                
+eclipse                                                                                                                 
+ntuser.dat.LOG1                                                                                                         
+ntuser.dat.LOG2                                                                                                         
+ntuser.ini
+
+PUT Command
+
+sftp> pwd
+Remote working directory: /C:/Users/aswat
+sftp> put calci.sh
+Uploading calci.sh to /C:/Users/aswat/calci.sh
+calci.sh                                                                              100%  489    10.7KB/s   00:00    
+sftp>
+
+using GET Command
+sftp> get ntuser.ini
+Fetching /C:/Users/aswat/ntuser.ini to ntuser.ini
+ntuser.ini                                                                            100%   20     8.4KB/s   00:00    
+sftp>
