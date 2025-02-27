@@ -1,0 +1,33 @@
+Name: Aswath S
+Reg No: 21BEC2188 
+Networking Training Program 
+
+Question-11:
+
+using a terminal connect to a remote machine via SSH and telnet
+
+using SSH from windows to my linux machine having ip 192.168.29.92
+
+C:\Users\aswat>ssh 192.168.29.2
+aswat@192.168.29.2's password:
+
+C:\Users\aswat>ssh aswath@192.168.29.92
+aswath@192.168.29.92's password:
+Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-52-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+238 updates can be applied immediately.
+3 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+8 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+Last login: Tue Feb 25 14:35:22 2025 from 192.168.29.2
+aswath@aswath-VirtualBox:~$
+
