@@ -1,0 +1,59 @@
+Name: Aswath S
+University: VIT University
+Reg.No: 21BEC2188
+Question 3:
+Configure static IP addresses, modify MAC addresses, and verify network connectivity
+using ping and ifconfig commands.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ip address of my windows Machine is 192.168.29.100 and gateway is 192.168.29.2
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+aswath@aswath-VirtualBox:~$ sudo ifconfig enp0s3 192.168.29.100 netmask 255.255.255.0 up
+aswath@aswath-VirtualBox:~$ sudo ifconfig enp0s3 down
+aswath@aswath-VirtualBox:~$ sudo ifconfig enp0s3 up
+aswath@aswath-VirtualBox:~$ sudo route add default gw 192.168.29.2 enp0s3
+aswath@aswath-VirtualBox:~$ ip route
+default via 192.168.29.2 dev enp0s3 
+192.168.29.0/24 dev enp0s3 proto kernel scope link src 192.168.29.100 
+aswath@aswath-VirtualBox:~$ ping 192.168.29.2
+PING 192.168.29.2 (192.168.29.2) 56(84) bytes of data.
+64 bytes from 192.168.29.2: icmp_seq=1 ttl=128 time=1.09 ms
+64 bytes from 192.168.29.2: icmp_seq=2 ttl=128 time=0.361 ms
+64 bytes from 192.168.29.2: icmp_seq=3 ttl=128 time=0.209 ms
+64 bytes from 192.168.29.2: icmp_seq=4 ttl=128 time=0.255 ms
+64 bytes from 192.168.29.2: icmp_seq=5 ttl=128 time=0.344 ms
+64 bytes from 192.168.29.2: icmp_seq=6 ttl=128 time=0.245 ms
+^C
+--- 192.168.29.2 ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5140ms
+rtt min/avg/max/mdev = 0.209/0.417/1.091/0.306 ms
+aswath@aswath-VirtualBox:~$ ifconfig enp0s3
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.29.100  netmask 255.255.255.0  broadcast 192.168.29.255
+        inet6 2405:201:e022:1025:a00:27ff:fe69:98aa  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::a00:27ff:fe69:98aa  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:69:98:aa  txqueuelen 1000  (Ethernet)
+        RX packets 953  bytes 75522 (75.5 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 308  bytes 42763 (42.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MAC Address assigning
+
+aswath@aswath-VirtualBox:~$ sudo ifconfig enp0s3 hw ether 00:11:22:33:44:55
+aswath@aswath-VirtualBox:~$ ifconfig enp0s3 | grep ether
+        ether 00:11:22:33:44:55  txqueuelen 1000  (Ethernet)
+aswath@aswath-VirtualBox:~$ ping 192.168.29.100
+PING 192.168.29.100 (192.168.29.100) 56(84) bytes of data.
+64 bytes from 192.168.29.100: icmp_seq=1 ttl=64 time=0.038 ms
+64 bytes from 192.168.29.100: icmp_seq=2 ttl=64 time=0.040 ms
+64 bytes from 192.168.29.100: icmp_seq=3 ttl=64 time=0.049 ms
+64 bytes from 192.168.29.100: icmp_seq=4 ttl=64 time=0.075 ms
+64 bytes from 192.168.29.100: icmp_seq=5 ttl=64 time=0.055 ms
+^C
+--- 192.168.29.100 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4091ms
+rtt min/avg/max/mdev = 0.038/0.051/0.075/0.013 ms
+
