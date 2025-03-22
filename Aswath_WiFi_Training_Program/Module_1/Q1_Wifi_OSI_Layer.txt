@@ -1,0 +1,17 @@
+WiFi Training Program 2025
+Name: Aswath S                  
+University: VIT Vellore
+Reg.No: 21BEC2188
+Question-1:
+In which OSI layer the Wi-Fi standard/protocol fits.
+Solution:
+
+The Wi-Fi standard (IEEE 802.11) resides in the Data Link Layer (Layer 2) and Physical Layer (Layer 1) of the OSI model.
+
+Physical Layer (Layer 1): This layer addresses the transmission of radio signals through the air. Wi-Fi standards specify modulation methods, frequency bands (2.4 GHz, 5 GHz, 6 GHz), and data rates (e.g., OFDM, DSSS).
+
+Data Link Layer (Layer 2): This is subdivided into:
+
+Logical Link Control (LLC) sublayer: Controls frame synchronization, error control, and flow control.
+
+Media Access Control (MAC) sublayer: Specifies MAC addresses, controls wireless medium access (CSMA/CA), and provides proper framing of data.

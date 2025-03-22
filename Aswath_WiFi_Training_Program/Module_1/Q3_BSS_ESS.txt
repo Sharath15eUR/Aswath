@@ -1,0 +1,43 @@
+WiFi Training Program 2025
+Name: Aswath S                  
+University: VIT Vellore
+Reg.No: 21BEC2188
+Question-3:
+what is BSS and ESS?
+1. Basic Service Set (BSS)
+Definition: A BSS is one wireless access point (AP) with related client devices (stations).
+Components:
+Access Point (AP) or Wi-Fi Router
+Client devices (laptops, smartphones, IoT devices)
+BSSID (Basic Service Set Identifier):Each BSS has a unique MAC address for the access point.
+Example: b4:a7:c6:e7:67:e5 (seen in your Wi-Fi properties).
+Types of BSS:
+Infrastructure BSS:
+Has an access point (AP) that provides wireless devices connectivity to a wired network.
+Example: Your home Wi-Fi router forming a network for all your devices.
+
+Independent BSS (IBSS):
+Also referred to as Ad-Hoc Mode, in which devices talk directly to each other without the use of an access point.
+Example: Wi-Fi Direct or device-to-device communication.
+Example of a BSS:
+SSID: ASWATH S
+BSSID: b4:a7:c6:e7:67:e5 (MAC address of the AP)
+Devices Connected: Your laptop, smartphone, Raspberry Pi
+
+2. Extended Service Set (ESS)
+Definition: A multi-AP network that shares a single wired network, enabling seamless roaming.
+Components:
+Multiple BSSs (APs)
+Same SSID for all APs
+Shared wired network (LAN)
+ESSID (Extended Service Set Identifier):The same SSID (Wi-Fi network name) is shared among multiple APs to enable seamless handoff.
+
+Example Use Case:
+Multiple APs are used in large buildings, offices, universities, airports, and hotels to provide extended coverage.
+Your phone changes APs without losing connection.
+Example of an ESS:
+SSID: ASWATH S
+AP 1's BSSID: b4:a7:c6:e7:67:e5
+AP 2's BSSID: d0:6d:ef:4c:12:b3
+AP 3's BSSID: f1:3e:aa:9d:56:c7
+Your device will automatically connect to the closest AP.

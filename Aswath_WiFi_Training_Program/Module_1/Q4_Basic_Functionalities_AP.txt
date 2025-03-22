@@ -1,0 +1,92 @@
+WiFi Training Program 2025
+Name: Aswath S                  
+University: VIT Vellore
+Reg.No: 21BEC2188
+Question-4:
+What are the basic functionalities of Wi-Fi Accesspoint
+
+Fundamental Functions of a Wi-Fi Access Point (AP)
+A Wi-Fi Access Point (AP) is hardware through which wireless devices are provided access to a wired network by utilizing Wi-Fi. It finds general usage at homes, workplaces, and public locations to give a wider reach of the network as well as provide wireless connection.
+
+1. Transmission & Receipt of Wireless Signals
+The AP sends and receives Wi-Fi signals to enable devices such as laptops, smartphones, and IoT devices to connect wirelessly.
+Uses RF (Radio Frequency) waves to communicate with devices.
+Supports various frequency bands:
+2.4 GHz (longer range, slower speed)
+5 GHz (shorter range, faster speed)
+6 GHz (only in Wi-Fi 6E, faster & low interference)
+
+2. Network Bridging (Wired to Wireless) 
+An AP connects wired and wireless networks, enabling Wi-Fi devices to access an Ethernet-based network (LAN).
+Ethernet Input (RJ45 Port): Connects to the central router or switch.
+Wireless Output (Wi-Fi): Radiates the signal to surrounding devices.
+This enables wireless devices to use the internet and local network resources.
+
+3. SSID Broadcasting & Wi-Fi Network Identification 
+An AP transmits an SSID (Service Set Identifier), or Wi-Fi network name that appears when users are looking for networks.
+Example:
+SSID: MyHomeWiFi
+SSID: Company_Network
+Users choose the SSID and enter a password (if protected) to connect.
+Optional Features:
+Hidden SSID: The AP has the ability to conceal the SSID for additional security (manual entry).
+Multiple SSIDs: Guest networks and individual VLANs are permitted by some APs.
+
+4. Wi-Fi Security & Encryption 
+An AP provides secure communication through the use of encryption and authentication protocols.
+Popular Wi-Fi Security Standards:
+WEP (Weak - Obsolete)
+WPA (Improved)
+WPA2 (Standard)
+WPA3 (Most Secure - Implemented in Wi-Fi 6/6E)
+Encryption Techniques:
+TKIP (Old, less secure)
+AES (Strong, implemented in WPA2 & WPA3)
+APs also provide:
+MAC Address Filtering (Allow only certain devices)
+Captive Portals (Used in public Wi-Fi networks)
+
+5. DHCP & IP Address Management 
+An AP distributes IP addresses to connected devices through DHCP (Dynamic Host Configuration Protocol) or relays DHCP requests to a router.
+Example:
+Router allocates: 192.168.1.2, 192.168.1.3, etc.
+AP can function as a DHCP relay to control large networks.
+
+6. Load Balancing & Band Steering Newer APs efficiently handle traffic to enhance performance.
+Load Balancing:
+Splits devices evenly among several APs to prevent congestion.
+Example: In an office building, devices roam APs depending on usage.
+Band Steering:
+Forces devices to utilize 5 GHz over 2.4 GHz for increased speeds.
+
+7. Roaming Support (ESS & Fast Handoff)
+In a multi-AP network (ESS - Extended Service Set), an AP assists devices in roaming between APs without disconnecting.
+Fast Roaming Technologies:
+802.11r (Fast Transition)
+802.11k (Neighbor Reports)
+802.11v (Client Steering)
+Example:
+Traveling from Room A to Room B, your phone changes APs without ending your call.
+
+8. Quality of Service (QoS) & Traffic Prioritization
+APs are able to prioritize essential network traffic for seamless performance.
+QoS (Quality of Service):
+Gives higher priority to video calls, VoIP, and gaming traffic than normal browsing.
+Guarantees low latency for real-time applications.
+Example of QoS in action:
+A Zoom conference is given greater priority than file downloads.
+
+9. Power over Ethernet (PoE) Support 
+Most business-class APs have PoE support, which receives power and network connectivity via a single Ethernet cable.
+Benefits of PoE:
+No additional power adapter required.
+APs can be installed in ceilings, corridors, and outdoor areas.
+
+10. Mesh Networking & AP Controller Support
+Mesh Wi-Fi APs provide a self-healing, multi-AP network for uninterrupted coverage.
+Mesh Networking:
+Multiple APs collaborate to eliminate dead spots.
+Example: Google Nest Wi-Fi, Eero, TP-Link Deco.
+AP Controller Support:
+Centralized AP management using software like UniFi Controller, Cisco WLC.
+Admins can monitor, configure, and troubleshoot multiple APs easily.
