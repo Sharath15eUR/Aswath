@@ -1,0 +1,14 @@
+WiFi Training Program 2025
+Name: Aswath S                  
+University: VIT Vellore
+Reg.No: 21BEC2188
+Question-7:
+If WLC deployed in WAN, which AP mode is best for local network and how?
+
+Hybrid Mode (FlexConnect Mode)
+This mode is part of the Lightweight AP architecture but specifically designed to handle scenarios where the WLC is remote (e.g., deployed over a WAN).
+Working:
+1.APs establish a CAPWAP Control Tunnel to the WLC over the WAN.
+2.Data traffic is switched locally at the AP unless configured to be tunneled back to the controller (usually not preferred in WAN scenarios).
+3.Keep-Alive messages are exchanged to maintain the control tunnel.
+4.During WAN failures, the APs continue serving clients using local switching until the WLC becomes reachable again.

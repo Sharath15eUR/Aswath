@@ -1,0 +1,26 @@
+WiFi Training Program 2025
+Name: Aswath S                  
+University: VIT Vellore
+Reg.No: 21BEC2188
+Question-1:
+Brief about SplitMAC architecture and how it improves the AP's performance
+SplitMAC architecture is a network architecture widely utilized within enterprise-class wireless networks to promote performance and scalability of Access Points (APs). The architecture separates the processing of a traditional monolithic AP into two sections:
+Control Plane (Centralized/Controller-based):
+      •	Performs non-time-sensitive tasks like authentication, security rules, QoS control, roaming decisions, and network management.
+      •	Deployed within a Wireless LAN Controller (WLC) or a cloud-based controller.
+Data Plane (Distributed/Local to AP):
+      •	Manages time-critical operations such as frame forwarding, encryption/decryption, and packet buffering.
+      •	Handled directly by the AP for quicker data transmission.
+SplitMAC Architecture Enhances AP Performance
+     1.	Improved Scalability:
+       • Offloading control functions to a central controller alleviates the computational load from individual APs, enabling deployment of a higher number of APs without any impact on performance.
+     2.	Increased Throughput:
+       • With only the data plane handled by APs, high-speed data transfer is concentrated, leading to improved throughput and reduced latency for connected clients.
+     3.	Simplified Management:
+       • Centralized control simplifies network management, configuration, and troubleshooting, particularly in large deployments.
+       • As the controller takes care of mobility management, the devices roam among APs seamlessly with no latency, enhancing user experience.
+     4.	Increased Security:
+       • With centralized authentication and policy management, the network becomes more secure by maintaining uniform enforcement of security policies.
+     5.	Load Balancing:
+       • The controller dynamically loads-balance traffic among APs, enhancing the overall efficiency and reliability of the network.
+
