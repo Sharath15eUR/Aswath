@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <stdbool.h>
+
+// Shared input N
+int N;
+
+// Function to check if a number is prime
+bool is_prime(int num) {
+    if (num < 2) return false;
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0) return false;
+    return true;
+}
+
+// Thread A: Compute sum of first N prime numbers
+void* sum_of_primes(void* arg) {
+    int count = 0, num = 2, sum = 0;
+
+    while (count < N) {
+        if (is_prime(num)) {
+            sum += num;
+            count++;
+        }
+        num++;
+    }
+
+    printf("Thread A: Sum of first %d prime numbers is %d\n", N, sum);
+    pthread_exit(NULL);
+}
+
+// Thread B: Print every 2 seconds for 100 seconds
+void* thread1(void* arg) {
+    for (int t = 0; t <= 100; t += 2) {
+        printf("Thread 1 running\n");
+        sleep(2);
+    }
+    pthread_exit(NULL);
+}
+
+// Thread C: Print every 3 seconds for 100 seconds
+void* thread2(void* arg) {
+    for (int t = 0; t <= 100; t += 3) {
+        printf("Thread 2 running\n");
+        sleep(3);
+    }
+    pthread_exit(NULL);
+}
+
+int main() {
+    pthread_t tidA, tidB, tidC;
+
+    printf("Enter N (number of prime numbers to sum): ");
+    scanf("%d", &N);
+
+    // Create the threads
+    pthread_create(&tidA, NULL, sum_of_primes, NULL);
+    pthread_create(&tidB, NULL, thread1, NULL);
+    pthread_create(&tidC, NULL, thread2, NULL);
+
+    // Wait for all threads to finish
+    pthread_join(tidA, NULL);
+    pthread_join(tidB, NULL);
+    pthread_join(tidC, NULL);
+
+    printf("All threads finished.\n");
+    return 0;
+}

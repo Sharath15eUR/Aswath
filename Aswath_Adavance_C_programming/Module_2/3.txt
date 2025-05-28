@@ -1,0 +1,107 @@
+1. Child Process – fork()
+
+Understanding:
+
+* fork() is a system call in UNIX/Linux used to create a new process, called a child process, which is a copy of the parent.
+* After fork(), two processes exist with different process IDs.
+* Return values:
+
+  * 0 in the child process.
+  * PID of the child in the parent.
+  * -1 on error (e.g., if system resources are exhausted).
+
+Example:
+
+
+pid_t pid = fork();
+if (pid == 0) {
+    // Child process
+} else if (pid > 0) {
+    // Parent process
+}
+
+2. Handling Common Signals
+
+Understanding:
+
+Signals are software interrupts used by the OS to notify a process of events (e.g., errors, user actions).
+
+Common Signals:
+
+* SIGINT – interrupt (Ctrl+C)
+* SIGTERM – termination request
+* SIGKILL – force kill (non-catchable)
+* SIGSEGV – segmentation fault (invalid memory access)
+* SIGALRM – timer expiration
+
+Example Handler:
+
+#include <signal.h>
+void sigint_handler(int sig) {
+    printf("Caught SIGINT. Ignoring Ctrl+C.\n");
+}
+signal(SIGINT, sigint_handler);
+
+3. Exploring Different Kernel Crashes
+
+Understanding:
+
+A kernel crash occurs when the OS kernel hits a fatal error and can no longer continue.
+
+Common Causes:
+
+* Null pointer dereference in kernel space.
+* Stack overflows.
+* Invalid memory access by drivers.
+* Race conditions in kernel modules.
+
+Exploration Tools:
+
+* dmesg – to read kernel logs.
+* journalctl – for system logs in systemd-based distros.
+* Kernel crash dump analysis (kdump, crash tool).
+
+4. Time Complexity
+
+Understanding:
+
+Time complexity is a measure of how an algorithm's execution time grows with input size.
+
+Common Complexities:
+
+* Constant: O(1)
+* Linear: O(n)
+* Logarithmic: O(log n)
+* Quadratic: O(n^2)
+* Exponential: O(2^n)
+
+Example:
+
+* Binary Search: O(log n)
+* Bubble Sort: O(n^2)
+* Merge Sort: O(n log n)
+
+5. Locking Mechanism – Mutex / Spinlock
+
+Understanding:
+
+Used to protect critical sections in concurrent programming.
+
+Mutex (Mutual Exclusion):
+
+  * Sleeping lock.
+  * Thread/process sleeps if the lock is held.
+  * Suitable for user-space and blocking operations.
+
+Spinlock:
+
+  * Busy-waiting lock.
+  * Keeps checking until lock is available.
+  * Suitable for short, fast kernel operations (no sleeping).
+
+Example (pthread mutex):
+
+pthread_mutex_t lock;
+pthread_mutex_lock(&lock);
+// critical section
+pthread_mutex_unlock(&lock);
