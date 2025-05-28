@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_TASKS 3
+#define MAX_TASK_LENGTH 100
+#define DAYS_IN_WEEK 7
+
+// Structure to represent a day and its tasks
+typedef struct {
+    char dayName[10];
+    char tasks[MAX_TASKS][MAX_TASK_LENGTH];
+    int taskCount;
+} Day;
+
+// Initialize all days of the week
+void initializeWeek(Day week[]) {
+    char *names[DAYS_IN_WEEK] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    for (int i = 0; i < DAYS_IN_WEEK; i++) {
+        strcpy(week[i].dayName, names[i]);
+        week[i].taskCount = 0;
+    }
+}
+
+// Find the index of a day by name (case-insensitive)
+int getDayIndex(char *dayName, Day week[]) {
+    for (int i = 0; i < DAYS_IN_WEEK; i++) {
+        if (strcasecmp(week[i].dayName, dayName) == 0)
+            return i;
+    }
+    return -1; // Not found
+}
+
+// Add tasks to a specific day
+void inputTasks(Day week[]) {
+    char dayName[10];
+    printf("Enter the day name to add tasks (e.g., Monday): ");
+    scanf("%s", dayName);
+
+    int index = getDayIndex(dayName, week);
+    if (index == -1) {
+        printf("Invalid day name!\n");
+        return;
+    }
+
+    if (week[index].taskCount >= MAX_TASKS) {
+        printf("Maximum tasks already added for %s.\n", week[index].dayName);
+        return;
+    }
+
+    int remaining = MAX_TASKS - week[index].taskCount;
+    printf("You can add up to %d tasks.\n", remaining);
+
+    getchar(); // Consume leftover newline after scanf
+
+    for (int i = 0; i < remaining; i++) {
+        char temp[MAX_TASK_LENGTH];
+        printf("Enter task %d (or type 'done' to stop): ", i + 1);
+        fgets(temp, MAX_TASK_LENGTH, stdin);
+        temp[strcspn(temp, "\n")] = '\0'; // Remove newline character
+
+        if (strcasecmp(temp, "done") == 0)
+            break;
+
+        strcpy(week[index].tasks[week[index].taskCount], temp);
+        week[index].taskCount++;
+    }
+}
+
+// Display all tasks grouped by day
+void displayTasks(Day week[]) {
+    printf("\nWeekly Task List:\n");
+    for (int i = 0; i < DAYS_IN_WEEK; i++) {
+        printf("%s:\n", week[i].dayName);
+        if (week[i].taskCount == 0) {
+            printf("  No tasks.\n");
+        } else {
+            for (int j = 0; j < week[i].taskCount; j++) {
+                printf("  - %s\n", week[i].tasks[j]);
+            }
+        }
+    }
+}
+
+int main() {
+    Day week[DAYS_IN_WEEK];
+    initializeWeek(week);
+
+    int choice;
+    do {
+        printf("\nMenu:\n1. Add Tasks\n2. View Tasks\n3. Exit\nChoose an option: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                inputTasks(week);
+                break;
+            case 2:
+                displayTasks(week);
+                break;
+            case 3:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice. Please enter 1, 2, or 3.\n");
+        }
+    } while (choice != 3);
+
+    return 0;
+}

@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+// Function to shift elements to the right by 1 position using pointers
+void rightShift(int* start, int* end) {
+    int temp = *end;
+    while (end > start) {
+        *end = *(end - 1);
+        end--;
+    }
+    *start = temp;
+}
+
+// Main rearrangement function
+void rearrangeEvenOdd(int* arr, int size) {
+    int* current = arr;
+    int* scan = arr;
+
+    while (scan < arr + size) {
+        if (*scan % 2 == 0) {
+            if (scan != current) {
+                // Save the even value
+                int evenValue = *scan;
+
+                // Shift all elements between current and scan to the right by one
+                int* temp = scan;
+                while (temp > current) {
+                    *temp = *(temp - 1);
+                    temp--;
+                }
+
+                *current = evenValue;
+            }
+            current++;
+        }
+        scan++;
+    }
+}
+
+// Helper function to print the array
+void printArray(int* arr, int size) {
+    for (int* p = arr; p < arr + size; p++) {
+        printf("%d ", *p);
+    }
+    printf("\n");
+}
+
+// Example usage
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Original array:\n");
+    printArray(arr, size);
+
+    rearrangeEvenOdd(arr, size);
+
+    printf("Rearranged array:\n");
+    printArray(arr, size);
+
+    return 0;
+}

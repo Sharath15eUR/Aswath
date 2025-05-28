@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+// Function to search for a key in a sorted n x n matrix
+bool searchMatrix(int** matrix, int n, int key) {
+    int row = 0;
+    int col = n - 1;  // Start from top-right corner
+
+    while (row < n && col >= 0) {
+        if (*(*(matrix + row) + col) == key) {
+            return true;
+        } else if (*(*(matrix + row) + col) > key) {
+            col--;  // Move left
+        } else {
+            row++;  // Move down
+        }
+    }
+    return false;
+}
+int main() {
+    int n = 4;
+    int data[4][4] = {
+        {10, 20, 30, 40},
+        {15, 25, 35, 45},
+        {27, 29, 37, 48},
+        {32, 33, 39, 50}
+    };
+
+    // Convert to int** for compatibility with the function
+    int* matrix[4];
+    for (int i = 0; i < n; i++) {
+        matrix[i] = data[i];
+    }
+
+    int key = 29;
+    if (searchMatrix((int**)matrix, n, key)) {
+        printf("Key %d found in the matrix.\n", key);
+    } else {
+        printf("Key %d not found in the matrix.\n", key);
+    }
+
+    return 0;
+}
